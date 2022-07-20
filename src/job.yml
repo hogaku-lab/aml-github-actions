@@ -1,7 +1,8 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 code: model
 command: >-
-  python train.py
+  python train.py 
+  --training_data ${{inputs.training_data}}
 inputs:
   training_data: 
     type: uri_folder 
