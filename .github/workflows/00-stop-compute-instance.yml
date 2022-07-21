@@ -6,12 +6,12 @@ on:
       resource_group:
         description: 'Resource group name'
         required: true
-        default: 'rg-dev-mlops' 
+        default: ${{secrets.AZURE_RESOURCE_GROUP_NAME}} 
         type: string
       aml_workspace:
         description: 'Azure Machine Learning workspace name'
         required: true
-        default: 'mlw-dev-mlops' 
+        default: ${{secrets.AZURE_ML_WORKSPACE_NAME}}
         type: string
       compute:
         description: 'Azure Machine Learning compute instance name'
