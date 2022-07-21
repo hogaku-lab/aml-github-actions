@@ -35,5 +35,6 @@ jobs:
       run: pwd && ls
     - name: Run Training a job using aml cluster
       run: 
-        az ml job -f /home/runner/work/aml-github-actions/aml-github-actions/src/job.yml -g rg-dev-mlops - w mlw-dev-mlops
+        az ml job -h
+        # az ml job -f /home/runner/work/aml-github-actions/aml-github-actions/src/job.yml -g rg-dev-mlops - w mlw-dev-mlops
        
