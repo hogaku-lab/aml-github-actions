@@ -33,5 +33,5 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Run Training a job using aml cluster
       run: 
-        az ml job -f job.yml -g ${{on.workflow_dispatch.inputs.resource_group.default}} - w ${{on.workflow_dispatch.inputs.aml_workspace.default}}
+        az ml job -f job.yml -g rg-dev-mlops - w mlw-dev-mlops
        
