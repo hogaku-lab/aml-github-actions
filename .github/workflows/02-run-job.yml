@@ -26,8 +26,6 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
-    - name: check a path
-      run: pwd && ls
     - name: Run Training a job using aml cluster
       run: 
         az ml job create -f src/job.yml -g rg-dev-mlops -w mlw-dev-mlops
