@@ -13,11 +13,6 @@ on:
         required: true
         default: 'mlw-dev-mlops' 
         type: string
-      # compute:
-      #   description: 'Azure Machine Learning compute cluster name'
-      #   required: true
-      #   default: 'dev-vm-cluster' 
-      #   type: amlcluster
 
 jobs:
   build:
@@ -36,6 +31,4 @@ jobs:
     - name: Run Training a job using aml cluster
       run: 
         az ml job create -f src/job.yml -g rg-dev-mlops -w mlw-dev-mlops
-        # az ml job -f /home/runner/work/aml-github-actions/aml-github-actions/src/job.yml -g rg-dev-mlops - w mlw-dev-mlops
-        # az ml job -f ./src/job.yml -g rg-dev-mlops - w mlw-dev-mlops
        
