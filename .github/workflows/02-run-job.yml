@@ -1,0 +1,37 @@
+name: Run Training a job in AML
+
+on:
+  workflow_dispatch:
+    inputs:
+      resource_group:
+        description: 'Resource group name'
+        required: true
+        default: 'rg-dev-mlops' 
+        type: string
+      aml_workspace:
+        description: 'Azure Machine Learning workspace name'
+        required: true
+        default: 'mlw-dev-mlops' 
+        type: string
+      # compute:
+      #   description: 'Azure Machine Learning compute cluster name'
+      #   required: true
+      #   default: 'dev-vm-cluster' 
+      #   type: amlcluster
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@main
+    - name: Install az ml extension
+      run: az extension add -n ml -y
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: Run Training a job using aml cluster
+      run: 
+        az ml job -f job.yml -g ${{on.workflow_dispatch.inputs.resource_group.default}} - w ${{on.workflow_dispatch.inputs.aml_workspace.default}}
+       
