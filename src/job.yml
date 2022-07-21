@@ -9,6 +9,6 @@ inputs:
     path: azureml:diabetes-folder:1
   reg_rate: 0.01
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
-compute: azureml:dev-vm
+compute: azureml:dev-vm-cluster
 experiment_name: first-exp
 description: github actions test
